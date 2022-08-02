@@ -1,0 +1,7 @@
+{
+  "nav-routes": [
+    { "key": 1, "path": "/", "name": "home-page" },
+    { "key": 2, "path": "/form", "name": "form-page" },
+    { "key": 3, "path": "/notes", "name": "notes-page" }
+  ]
+}

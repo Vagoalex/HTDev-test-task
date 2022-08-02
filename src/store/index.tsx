@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import pageReducer from './page/pageSlice';
+import notesReducer from './notes/notesSlice';
 
 const store = configureStore({
   reducer: {
-    page: pageReducer,
+    notes: notesReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
 
 export default store;

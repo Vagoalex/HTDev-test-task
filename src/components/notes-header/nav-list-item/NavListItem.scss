@@ -2,7 +2,6 @@
 @import '../../../style/mixins.scss';
 
 .NavListItem {
-  height: 48px;
   cursor: pointer;
 
   @include crossBrowser(transition, all 0.4s ease);
@@ -11,28 +10,53 @@
 
   animation: nav-item-in 1s linear forwards;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   &__link {
-    font: 12px 'Open Sans', sans-serif;
+    font: 16px 'Open Sans', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2.5px;
 
     display: inline-block;
     font-weight: 700;
-    padding: 8px 13px;
+    margin: 0px 13px;
     line-height: 32px;
     text-decoration: none;
     text-align: left;
-    color: #fff;
-    text-shadow: 3px 3px 2px rgba(165, 105, 171, 0.7);
-    &--active {
-      color: rgb(189, 95, 198);
-    }
-  }
-  &:hover {
-    @include crossBrowser(transform, scale(1.2));
+    color: $main-color;
+    text-shadow: 3px 3px 2px $shadow-color;
 
-    .NavListItem__link {
+    @include crossBrowser(transition, all 0.4s ease);
+
+    &:hover:not(.NavListItem__link--active) {
+      @include crossBrowser(transform, scale(1.2));
+
+      color: $main-color-hover;
       text-shadow: none;
+    }
+    &:active:not(.NavListItem__link--active) {
+      @include crossBrowser(transform, scale(1.2));
+      color: $main-color-active;
+      text-shadow: none;
+    }
+
+    &--active {
+      position: relative;
+      color: $active-color;
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        animation: active-link-in 600ms linear forwards;
+        height: 2px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 2px $shadow-color;
+        background-color: $main-color-active;
+      }
     }
   }
 }
@@ -52,5 +76,14 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes active-link-in {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
   }
 }

@@ -8,7 +8,7 @@ const NavList = () => {
   return (
     <ul className='NavList'>
       {navElements.map((route) => (
-        <NavListItem route={route} />
+        <NavListItem key={route.key} route={route} />
       ))}
     </ul>
   );

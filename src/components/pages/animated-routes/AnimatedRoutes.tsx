@@ -30,7 +30,7 @@ const AnimatedRoutes: FC = () => {
           path='/'
           element={
             <Suspense fallback={<LoadingPage />}>
-              <main className='main'>
+              <main className='main wrapper'>
                 {suspended ? <HomePage /> : <LoadingPage />}
               </main>
             </Suspense>
@@ -40,7 +40,7 @@ const AnimatedRoutes: FC = () => {
           path='/form'
           element={
             <Suspense fallback={<LoadingPage />}>
-              <main className='main'>
+              <main className='main wrapper'>
                 {suspended ? <FormPage /> : <LoadingPage />}
               </main>
             </Suspense>
@@ -50,7 +50,7 @@ const AnimatedRoutes: FC = () => {
           path='/notes'
           element={
             <Suspense fallback={<LoadingPage />}>
-              <main className='main'>
+              <main className='main wrapper'>
                 {suspended ? <NotesPage /> : <LoadingPage />}
               </main>
             </Suspense>
@@ -60,7 +60,7 @@ const AnimatedRoutes: FC = () => {
           path='*'
           element={
             <Suspense fallback={<LoadingPage />}>
-              <main className='main'>
+              <main className='main wrapper'>
                 {suspended ? <Page404 /> : <LoadingPage />}
               </main>
             </Suspense>

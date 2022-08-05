@@ -3,35 +3,35 @@ import data from '../../db.json';
 import { IFooter } from './typesFooter';
 import './NotesFooter.scss';
 
-// const footerSocials = data['footer-socials'];
+const footerSocials = data['footer-socials'];
 
-const NotesFooter: FC = (): JSX.Element => {
+const NotesFooter: FC = () => {
   return (
     <footer className='NotesFooter'>
-      {/* <div className='NotesFooter__container'>
+      <div className='NotesFooter__container'>
         <ul className='NotesFooter__list'>
-          {footerSocials.map(({ id, ...data }) => (
-            <NotesFooterItem key={id} {...data} />
+          {footerSocials.map((social) => (
+            <NotesFooterItem key={social.id} social={social} />
           ))}
         </ul>
-      </div> */}
+      </div>
     </footer>
   );
 };
 
-// const NotesFooterItem = ({ title, socialLink }) => {
-//   return (
-//     <li className='FooterSocial-list-item'>
-//       <a
-//         className={`FooterSocial-list-item__link`}
-//         href={socialLink}
-//         target='_blank'
-//         rel='noreferrer'
-//       >
-//         {title}
-//       </a>
-//     </li>
-//   );
-// };
+const NotesFooterItem: FC<IFooter> = ({ social }) => {
+  return (
+    <li className='FooterSocial-list-item'>
+      <a
+        className={`FooterSocial-list-item__link`}
+        href={social.socialLink}
+        target='_blank'
+        rel='noreferrer'
+      >
+        {social.title}
+      </a>
+    </li>
+  );
+};
 
 export default NotesFooter;

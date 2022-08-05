@@ -11,7 +11,7 @@ const NotesPageItem: FC<INote> = ({
   text,
   signature,
   time,
-}): JSX.Element => {
+}) => {
   const validText = text === '' ? 'Здесь должен был быть текст' : text;
   const dispatch = useAppDispatch();
 

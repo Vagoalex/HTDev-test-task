@@ -1,10 +1,11 @@
-import './NavList.scss';
-import data from '../../../db.json';
+import { memo, FC } from 'react';
 import NavListItem from '../nav-list-item/NavListItem';
+import data from '../../../db.json';
+import './NavList.scss';
 
 const navElements = data['nav-routes'];
 
-const NavList = () => {
+const NavList: FC = () => {
   return (
     <ul className='NavList'>
       {navElements.map((route) => (
@@ -14,4 +15,4 @@ const NavList = () => {
   );
 };
 
-export default NavList;
+export default memo(NavList);

@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import NavList from './nav-list/NavList';
 
 import './NotesHeader.scss';
 
-const NotesHeader: FC = (): JSX.Element => {
+const NotesHeader: FC = () => {
   return (
     <header className='Header'>
       <nav className='Header__nav'>
@@ -13,4 +13,4 @@ const NotesHeader: FC = (): JSX.Element => {
   );
 };
 
-export default NotesHeader;
+export default memo(NotesHeader);

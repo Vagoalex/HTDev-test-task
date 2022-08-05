@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { motion } from 'framer-motion';
 import { INote } from './notesTypes';
 import { useAppSelector } from '../../../store/reduxHooks';
@@ -6,7 +6,7 @@ import NotesPageItem from './notes-page-item/NotesPageItem';
 
 import './NotesPage.scss';
 
-const NotesPage: FC = (): JSX.Element => {
+const NotesPage: FC = () => {
   const note: INote[] = useAppSelector((state) => state.notes.notes);
 
   return (
@@ -26,7 +26,7 @@ const NotesPage: FC = (): JSX.Element => {
               const { id, text, signature, time } = val;
               return (
                 <NotesPageItem
-                  noteNumber={i}
+                  noteNumber={i + 1}
                   key={id}
                   id={id}
                   text={text}
@@ -44,4 +44,4 @@ const NotesPage: FC = (): JSX.Element => {
   );
 };
 
-export default NotesPage;
+export default memo(NotesPage);

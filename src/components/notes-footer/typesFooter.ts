@@ -1,6 +1,8 @@
 export interface IFooter {
-  id: string;
-  name: string;
-  title: string;
-  socialLink: string;
+  social: {
+    id?: string;
+    name?: string;
+    title?: string;
+    socialLink?: string;
+  };
 }

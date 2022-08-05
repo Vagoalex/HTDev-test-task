@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './NavListItem.scss';
@@ -28,4 +29,4 @@ const NavListItem = ({ route }: routeProps) => {
   );
 };
 
-export default NavListItem;
+export default memo(NavListItem);

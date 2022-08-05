@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhtdev_test_task=self.webpackChunkhtdev_test_task||[]).push([[605],{605:function(t,e,n){n.r(e),n.d(e,{default:function(){return u}});var s=n(184),u=function(){return(0,s.jsx)("div",{children:"NotesPage404"})}}}]);
+//# sourceMappingURL=605.75ff96fa.chunk.js.map

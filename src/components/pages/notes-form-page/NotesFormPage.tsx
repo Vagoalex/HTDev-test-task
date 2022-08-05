@@ -1,43 +1,55 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useFormik, FormikProps, FormikErrors } from 'formik';
+import { IFormValues } from './formTypes';
 import { motion } from 'framer-motion';
 
 import './NotesFormPage.scss';
 
-interface FormikValues {
-  note: string;
-  signature: string;
-  time: string;
-}
-
 const NotesForm = () => {
-  const formik: FormikProps<FormikValues> = useFormik<FormikValues>({
+  const notify = () =>
+    toast.success('Заметка создана :)', {
+      position: 'bottom-right',
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
+  const formik: FormikProps<IFormValues> = useFormik<IFormValues>({
     initialValues: {
-      note: '',
+      text: '',
       signature: '',
-      time: '',
     },
 
-    validate: (values: FormikValues) => {
-      let errors: FormikErrors<FormikValues> = {};
+    validate: (values: IFormValues) => {
+      let errors: FormikErrors<IFormValues> = {};
 
       if (!values.signature) {
         errors.signature = 'Укажите подпись.';
       } else if (values.signature.length < 4) {
         errors.signature = 'Минимум 4 символа.';
+      } else if (values.signature.length > 100) {
+        errors.signature = 'Максимум 100 символов.';
       }
 
       return errors;
     },
-    onSubmit: (values: FormikValues) =>
-      console.log(JSON.stringify(values, null, 2)),
-    // onSubmit: (values) => console.log(values),
+    onSubmit: (values: IFormValues, { resetForm }) => {
+      resetForm();
+      notify();
+      console.log(JSON.stringify(values, null, 2));
+    },
   });
 
   return (
     <motion.section
       className='NotesForm'
-      initial={{ position: 'relative', left: '-50%' }}
-      animate={{ position: 'relative', left: '0%' }}
+      initial={{ position: 'relative', left: '-50%', opacity: 0 }}
+      animate={{ position: 'relative', left: '0%', opacity: 1 }}
       exit={{ position: 'absolute', left: '100%', top: 0, opacity: 0 }}
       transition={{
         duration: 0.8,
@@ -47,62 +59,61 @@ const NotesForm = () => {
         <form className='Form' onSubmit={formik.handleSubmit}>
           <div className='Form-elements'>
             <div className='Form-elements__field'>
-              <label htmlFor='note'>Запись</label>
-              <input
-                id='note'
-                name='note'
-                type='text'
-                value={formik.values.note}
+              <label className='Form-elements__label' htmlFor='text'>
+                Заметка
+              </label>
+              <textarea
+                className='Form-elements__input Form-elements__textarea'
+                id='text'
+                name='text'
+                value={formik.values.text}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                placeholder='Введите имя'
+                placeholder='Введите текст заметки'
               />
-              {formik.touched.note && formik.errors.note ? (
-                <div>{formik.errors.note}</div>
+              {formik.touched.text && formik.errors.text ? (
+                <div className='form-error-msg'>{formik.errors.text}</div>
               ) : null}
             </div>
 
             <div className='Form-elements__field'>
-              <label htmlFor='signature'>Подпись *</label>
+              <label className='Form-elements__label' htmlFor='signature'>
+                Подпись *
+              </label>
 
               <input
+                className={`Form-elements__input ${
+                  formik.touched.signature && formik.errors.signature
+                    ? 'form-input-required'
+                    : ''
+                }`}
                 id='signature'
                 name='signature'
                 type='text'
                 value={formik.values.signature}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                placeholder='Введите имя'
+                placeholder='Введите подпись'
               />
               {formik.touched.signature && formik.errors.signature ? (
-                <div>{formik.errors.signature}</div>
-              ) : null}
-            </div>
-
-            <div className='Form-elements__field'>
-              <label htmlFor='time'>Точное время по:</label>
-              <select
-                id='time'
-                name='time'
-                value={formik.values.time}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              >
-                <option value=''>Выберите валюту</option>
-                <option value='USD'>USD</option>
-                <option value='UAH'>UAH</option>
-                <option value='RUB'>RUB</option>
-              </select>
-
-              {formik.touched.time && formik.errors.time ? (
-                <div>{formik.errors.time}</div>
+                <div className='form-error-msg'>{formik.errors.signature}</div>
               ) : null}
             </div>
           </div>
 
-          <button type='submit'>Создать</button>
+          <button
+            className={`Form__btn ${
+              formik.touched.signature && formik.errors.signature
+                ? 'form-button-disabled'
+                : ''
+            }`}
+            type='submit'
+          >
+            Создать
+          </button>
         </form>
       </div>
+      <ToastContainer />
     </motion.section>
   );
 };

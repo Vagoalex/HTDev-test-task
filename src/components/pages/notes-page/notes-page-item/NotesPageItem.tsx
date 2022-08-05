@@ -1,24 +1,31 @@
-import { FC, memo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import type { RootState, AppDispatch } from '../../../../store/index';
-import { Note } from '../notesTypes';
+import { FC, MouseEvent, memo } from 'react';
+import { deleteNote } from '../../../../store/notesSlice';
+import { useAppDispatch } from '../../../../store/reduxHooks';
+
+import { INote } from '../notesTypes';
 import './NotesPageItem.scss';
 
-const NotesPageItem: FC<Note> = ({
+const NotesPageItem: FC<INote> = ({
+  noteNumber,
   id,
-  note,
   text,
   signature,
   time,
-  onDelete,
-}) => {
+}): JSX.Element => {
   const validText = text === '' ? 'Здесь должен был быть текст' : text;
+  const dispatch = useAppDispatch();
 
   return (
     <div className='NotesPageItem'>
-      <span onClick={onDelete} className='NotesPageItem__delete'></span>
+      <span
+        onClick={(e: MouseEvent<HTMLButtonElement>): void => {
+          e.preventDefault();
+          dispatch(deleteNote(id));
+        }}
+        className='NotesPageItem__delete'
+      ></span>
       <h4 className='NotesPageItem__signature'>{signature}</h4>
-      <h2 className='NotesPageItem__title'>{note}</h2>
+      <h2 className='NotesPageItem__title'>{`Заметка №${noteNumber}`}</h2>
       <h2 className='NotesPageItem__time'>{time}</h2>
       <p className='NotesPageItem__desk'>{validText}</p>
     </div>

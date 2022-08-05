@@ -1,0 +1,44 @@
+@import '../../../style/variables.scss';
+@import '../../../style/mixins.scss';
+
+.NotesHome {
+  height: 550px;
+  padding: 75px 35px;
+  display: flex;
+  justify-content: center;
+
+  transition: all 0.5s ease;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 950px;
+    height: 100%;
+    padding: 28px 45px;
+    position: relative;
+    background-color: #949494;
+    background-image: url('https://www.transparenttextures.com/patterns/nice-snow.png');
+    animation: animated-background 30s linear infinite;
+    background-size: 102%;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+  }
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: $active-color;
+    text-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

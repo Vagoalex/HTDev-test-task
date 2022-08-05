@@ -1,30 +1,45 @@
 {
   "nav-routes": [
     { "key": 1, "path": "/", "name": "Главная" },
-    { "key": 2, "path": "/form", "name": "Создать запись" },
-    { "key": 3, "path": "/notes", "name": "Записи" }
+    { "key": 2, "path": "/form", "name": "Создать заметку" },
+    { "key": 3, "path": "/notes", "name": "Заметки" }
   ],
-  "notes": [
+  "footer-socials": [
     {
-      "id": 1732163,
-      "note": "Запись №1",
-      "text": "Какая-то интересная запись, записана чтобы протестить приложение",
-      "signature": "Неизвестный автор",
-      "time": "2022-07-04Т11:45:25.713795+05:00"
+      "id": "vk",
+      "name": "vk",
+      "title": "ВКонтакте",
+      "socialLink": "https://vk.com/vagoalex"
     },
     {
-      "id": 1231342,
-      "note": "Запись №2",
-      "text": "Какая-то интересная запись, записана чтобы протестить приложение",
-      "signature": "Вася Пупкин",
-      "time": "2022-07-04Т11:45:25.713795+05:00"
+      "id": "insta",
+      "name": "instagram",
+      "title": "Instagram",
+      "socialLink": "https://instagram.com/vagoalex13"
     },
     {
-      "id": 1232321342,
-      "note": "Запись №3",
-      "text": "Какая-то интересная запись, записана чтобы протестить приложение",
-      "signature": "Костя Дзю",
-      "time": "2022-07-04Т11:45:25.713795+05:00"
+      "id": "lnkdn",
+      "name": "linkedin",
+      "title": "LinkedIn",
+      "socialLink": "https://www.linkedin.com/in/aleksandr-vago-420b8723a/"
+    },
+    {
+      "id": "tg",
+      "name": "telegram",
+      "title": "Telegram",
+      "socialLink": "https://t.me/vagoalex"
+    },
+    {
+      "id": "git",
+      "name": "github",
+      "title": "Github repo",
+      "socialLink": "https://github.com/vagoalex"
+    },
+    {
+      "id": "habr",
+      "name": "habr-career",
+      "title": "Habr-карьера",
+      "socialLink": "https://career.habr.com/vagoalex"
     }
   ]
 }

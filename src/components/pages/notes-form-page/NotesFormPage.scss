@@ -1,0 +1,167 @@
+@import '../../../style/variables.scss';
+@import '../../../style/mixins.scss';
+
+.NotesForm {
+  height: 550px;
+  padding: 75px 35px;
+  display: flex;
+  justify-content: center;
+
+  transition: all 0.5s ease;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 950px;
+    height: 100%;
+    padding: 28px 45px;
+    background-color: #b3b3b3;
+    background-image: url('https://www.transparenttextures.com/patterns/light-honeycomb-dark.png');
+
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: all 0.5s ease;
+
+    // @media (max-width: $media-small-desktops) {
+    //   font-size: 24px;
+    //   padding: 15px;
+    //   width: 230px;
+    //   height: auto;
+    // }
+    // @media (max-width: $media-tablets) {
+    //   margin-top: 0px;
+    // }
+  }
+}
+.Form {
+  display: flex;
+  flex-direction: column;
+  &__btn {
+    align-self: flex-end;
+    width: 205px;
+    height: 36px;
+    background-color: $active-color;
+    border: 1px solid transparent;
+
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease;
+
+    cursor: pointer;
+
+    &:hover:not(.form-button-disabled) {
+      background-color: $active-color-hover;
+      box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.7);
+      transform: scale(1.05);
+    }
+    &:active:not(.form-button-disabled) {
+      background-color: $active-color-active;
+      transform: scale(1.05) translateY(4px);
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.9);
+    }
+
+    @media (max-width: $media-small-desktops) {
+      width: 100%;
+    }
+  }
+}
+.Form-elements {
+  margin-bottom: 30px;
+
+  &__field {
+    position: relative;
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  &__label {
+    line-height: 13px;
+    letter-spacing: -0.02em;
+    display: inline-block;
+    position: relative;
+    color: $active-color;
+    position: absolute;
+    top: -4px;
+    left: 10px;
+    background-color: #7c7c7c;
+    border-radius: 20px;
+    padding: 1px 10px;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 50%);
+  }
+  &__input {
+    width: 100%;
+    padding: 15px 16px;
+    margin-top: 4px;
+    background-color: #3a3a3a;
+    background-image: url('https://www.transparenttextures.com/patterns/nice-snow.png');
+    animation: animated-background 30s linear infinite;
+    cursor: pointer;
+
+    color: $active-color;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    outline: 1px solid transparent;
+    transition: all 0.5s ease;
+
+    &::placeholder {
+      transition: all 0.5s ease;
+      font-size: 12px;
+      line-height: 15px;
+      color: #b4b4b4;
+    }
+    &:focus {
+      outline: 1px solid rgba(159, 228, 255, 0.6);
+      box-shadow: 0px 2px 5px rgba(159, 228, 255, 0.6);
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+    @media (max-width: $media-small-desktops) {
+      padding: 8px 10px;
+    }
+  }
+  &__textarea {
+    width: 100%;
+    height: 108px;
+    overflow-y: auto;
+    resize: none;
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+    @media (max-width: $media-small-desktops) {
+      height: 70px;
+    }
+  }
+}
+
+.form-error-msg {
+  position: absolute;
+  bottom: -24%;
+  left: 0;
+  transition: all 0.5s ease;
+  font-size: 14px;
+  line-height: 10px;
+  letter-spacing: -0.02em;
+  color: #dd9f9f;
+  text-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
+}
+
+.form-input-required {
+  border: 1px solid #ff8484;
+  transition: all 0.5s ease;
+  &:focus {
+    outline: 1px solid #ff8484;
+    box-shadow: 0px 2px 5px rgba(255, 132, 132, 0.4);
+  }
+}
+
+.form-button-disabled {
+  transition: all 0.5s ease;
+  background-color: #eeeeee;
+  color: #b4b4b4;
+}

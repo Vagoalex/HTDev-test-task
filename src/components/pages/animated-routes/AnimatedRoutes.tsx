@@ -15,7 +15,7 @@ const FormPage = lazy(
 const NotesPage = lazy(() => import('../../pages/notes-page/NotesPage'));
 const Page404 = lazy(() => import('../../pages/notes-page-404/NotesPage404'));
 
-const AnimatedRoutes: FC = () => {
+const AnimatedRoutes: FC = (): JSX.Element => {
   const location = useLocation();
 
   const [suspended, setSuspended] = useState(false);

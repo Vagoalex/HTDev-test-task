@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import NavList from './nav-list/NavList';
 
 import './NotesHeader.scss';
 
-const NotesHeader = () => {
+const NotesHeader: FC = (): JSX.Element => {
   return (
     <header className='Header'>
       <nav className='Header__nav'>

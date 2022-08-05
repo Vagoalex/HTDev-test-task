@@ -1,8 +1,5 @@
 @import './reset.scss';
 @import './normalize.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700,900');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700;1,800&display=swap');
 @import './fonts.scss';
 @import './variables.scss';
 @import './mixins.scss';
@@ -18,7 +15,7 @@ body {
   line-height: 16px;
   height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   user-select: none;
 
   color: #000;
@@ -42,23 +39,23 @@ section {
   max-width: 1020px;
   margin: 0 auto;
 
-  @media (max-width: $mediaLaptops) {
-    max-width: 965px;
+  @media (max-width: $media-laptops) {
+    width: 965px;
   }
-  @media (max-width: $mediaSmallDesktops) {
-    max-width: 650px;
+  @media (max-width: $media-small-desktops) {
+    width: 650px;
   }
-  @media (max-width: $mediaTablets) {
-    max-width: 625px;
+  @media (max-width: $media-tablets) {
+    width: 625px;
   }
-  @media (max-width: $mediaSmallTablets) {
-    max-width: 400px;
+  @media (max-width: $media-small-tablets) {
+    width: 400px;
   }
-  @media (max-width: $mediaPhones) {
-    max-width: 350px;
+  @media (max-width: $media-phones) {
+    width: 350px;
   }
-  @media (max-width: $mediaSmallPhones) {
-    max-width: 260px;
+  @media (max-width: $media-small-phones) {
+    width: 260px;
   }
 }
 
@@ -70,9 +67,18 @@ section {
     opacity: 1;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.6;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes animated-background {
+  0% {
+    background-size: 182%;
+  }
+  100% {
+    background-size: 102%;
   }
 }

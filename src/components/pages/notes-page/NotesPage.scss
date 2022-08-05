@@ -1,51 +1,31 @@
+@import '../../../style/variables.scss';
+@import '../../../style/mixins.scss';
+
 .NotesPage {
+  height: 550px;
+  padding: 75px 35px;
+  display: flex;
+  justify-content: center;
+
+  transition: all 0.5s ease;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 950px;
+    height: 100%;
+    padding: 28px 45px;
+    position: relative;
+    background-color: #949494;
+    background-image: url('https://www.transparenttextures.com/patterns/checkered-light-emboss.png');
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+  }
+
   &__list {
   }
 }
-
-.hero-enter-active {
-  animation: fade-in 1000ms forwards;
-}
-
-.hero-exit-active {
-  animation: fade-out 1000ms forwards;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateX(-150px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(150px);
-  }
-}
-
-// .hero-enter {
-//     opacity: 0;
-// }
-
-// .hero-enter-active {
-//     opacity: 1;
-//     transition: opacity 500ms ease-in;
-// }
-
-// .hero-exit {
-//     opacity: 1;
-// }
-
-// .hero-exit-active {
-//     opacity: 0;
-//     transition: opacity 500ms ease-in;
-// }

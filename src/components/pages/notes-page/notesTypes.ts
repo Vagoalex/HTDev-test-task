@@ -1,8 +1,11 @@
-export interface Note {
+export interface INote {
+  noteNumber: number;
   id: number;
-  note: string;
   text: string;
   signature: string;
   time: string;
-  onDelete: Function;
 }
+
+// export interface INotesGroup {
+//   NotesGroup: INote[];
+// }

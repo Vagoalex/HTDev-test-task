@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { INote } from '../../../types/notesTypes';
 import { useAppSelector } from '../../../store/reduxHooks';
@@ -7,7 +8,7 @@ import NotesPageItem from './notes-page-item/NotesPageItem';
 import './NotesPage.scss';
 
 const NotesPage: FC = () => {
-  const note: INote[] = useAppSelector((state) => state.notes.notes);
+  const notes: INote[] = useAppSelector((state) => state.notes.notes);
 
   return (
     <motion.section
@@ -20,9 +21,13 @@ const NotesPage: FC = () => {
       }}
     >
       <div className='NotesPage__container'>
-        <div className='NotesPage__list'>
-          {note.length !== 0 ? (
-            note.map((val, i) => {
+        <div
+          className={`NotesPage__list ${
+            notes.length === 0 ? 'NotesPage__list--empty' : ''
+          }`}
+        >
+          {notes.length !== 0 ? (
+            notes.map((val, i) => {
               const { id, text, signature, time } = val;
               return (
                 <NotesPageItem
@@ -36,7 +41,14 @@ const NotesPage: FC = () => {
               );
             })
           ) : (
-            <div>Тут пока что пусто...</div>
+            <div className='NotesPage-list-empty'>
+              <h2 className='NotesPage-list-empty__title'>
+                Тут пока что пусто...
+              </h2>
+              <Link to='/form' className='NotesPage-list-empty__link'>
+                Перейти в форму
+              </Link>
+            </div>
           )}
         </div>
       </div>

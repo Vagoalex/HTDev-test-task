@@ -35,5 +35,56 @@
     border-radius: 15px;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.6);
+
+    &--empty {
+      display: flex;
+
+      justify-content: center;
+    }
+  }
+}
+
+.NotesPage-list-empty {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 17px;
+  text-align: center;
+  padding: 10px 40px;
+  color: $active-color;
+  text-transform: uppercase;
+  &__title {
+  }
+
+  transition: all 0.5s ease;
+
+  &__link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: $active-color;
+    text-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
+
+    padding: 10px 25px;
+    margin-top: 20px;
+    background-color: #949494;
+    background-image: url('https://www.transparenttextures.com/patterns/nice-snow.png');
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.15);
+      color: $active-color-hover;
+      background-color: #b7b7b7;
+    }
+    &:active {
+      transform: scale(1.15) translateY(3px);
+      color: $active-color-active;
+      background-color: #444444;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.9);
+    }
   }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="30" height="30">
+
+<g transform="matrix(0.75 0 0 0.75 0 0)">
+    <path d="M15.292 27.625L20 22.875L24.75 27.625L27 25.375L22.25 20.625L27 15.833L24.75 13.583L20 18.375L15.292 13.583L13.042 15.833L17.792 20.625L13.042 25.375L15.292 27.625zM11.042 35.292C 10.180667 35.292 9.437334 34.979332 8.812 34.354L8.812 34.354L8.812 9.25L6 9.25L6 6.083L14.458 6.083L14.458 4.5L25.5 4.5L25.5 6.083L34 6.083L34 9.25L32.125 9.25L32.125 32.125C 32.125 32.986336 31.812668 33.729332 31.188 34.354z" stroke="none" fill="rgb(47, 196, 255)" fill-rule="nonzero" />
+</g>
+</svg>

@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/605.75ff96fa.chunk.js","mappings":"gLAMA,EAJqB,WACnB,OAAO,yCACR,C","sources":["components/pages/notes-page-404/NotesPage404.tsx"],"sourcesContent":["import './NotesPage404.scss';\r\n\r\nconst NotesPage404 = () => {\r\n  return <div>NotesPage404</div>;\r\n};\r\n\r\nexport default NotesPage404;\r\n"],"names":[],"sourceRoot":""}

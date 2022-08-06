@@ -11,4 +11,58 @@
   background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
 
   @include crossBrowser(transition, all 0.5s ease);
+
+  &__list {
+    padding-left: 0;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.FooterSocial-list-item {
+  display: inline-block;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0px 10px;
+
+  &__link {
+    background-color: #4d4d4d;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
+    color: $active-color;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 44px;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    border-radius: 100%;
+
+    transition: all 0.5s linear;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: #000;
+      background-color: $active-color;
+      box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  &__vk {
+  }
+  &__instagram {
+  }
+  &__linkedin {
+  }
+  &__telegram {
+  }
+  &__github {
+  }
 }

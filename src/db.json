@@ -34,12 +34,6 @@
       "name": "github",
       "title": "Github repo",
       "socialLink": "https://github.com/vagoalex"
-    },
-    {
-      "id": "habr",
-      "name": "habr-career",
-      "title": "Habr-карьера",
-      "socialLink": "https://career.habr.com/vagoalex"
     }
   ]
 }

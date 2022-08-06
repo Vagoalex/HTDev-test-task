@@ -1,15 +1,8 @@
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import { routeProps } from '../../../types/headerNavTypes';
 
 import './NavListItem.scss';
-
-interface routeProps {
-  route: {
-    key: number;
-    path: string;
-    name: string;
-  };
-}
 
 const NavListItem = ({ route }: routeProps) => {
   const defaultClass = 'NavListItem__link';

@@ -1,8 +1,8 @@
-import { FC, MouseEvent, memo } from 'react';
+import { FC, memo } from 'react';
 import { deleteNote } from '../../../../store/notesSlice';
 import { useAppDispatch } from '../../../../store/reduxHooks';
 
-import { INote } from '../notesTypes';
+import { INote } from '../../../../types/notesTypes';
 import './NotesPageItem.scss';
 
 const NotesPageItem: FC<INote> = ({
@@ -12,22 +12,28 @@ const NotesPageItem: FC<INote> = ({
   signature,
   time,
 }) => {
-  const validText = text === '' ? 'Здесь должен был быть текст' : text;
+  const checkText: string | undefined =
+    text === '' ? 'Здесь должен был быть текст...' : text;
+  const validText =
+    checkText && checkText.length > 43 ? `${text?.slice(0, 40)}...` : checkText;
+
   const dispatch = useAppDispatch();
 
   return (
     <div className='NotesPageItem'>
-      <span
-        onClick={(e: MouseEvent<HTMLButtonElement>): void => {
-          e.preventDefault();
+      <div>
+        <h4 className='NotesPageItem__signature'>{signature}</h4>
+        <h2 className='NotesPageItem__title'>{`Заметка №${noteNumber}`}</h2>
+        <h2 className='NotesPageItem__time'>{time}</h2>
+        <p className='NotesPageItem__desk'>{validText}</p>
+      </div>
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
           dispatch(deleteNote(id));
         }}
         className='NotesPageItem__delete'
-      ></span>
-      <h4 className='NotesPageItem__signature'>{signature}</h4>
-      <h2 className='NotesPageItem__title'>{`Заметка №${noteNumber}`}</h2>
-      <h2 className='NotesPageItem__time'>{time}</h2>
-      <p className='NotesPageItem__desk'>{validText}</p>
+      ></div>
     </div>
   );
 };

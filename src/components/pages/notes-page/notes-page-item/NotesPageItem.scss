@@ -1,0 +1,74 @@
+@import '../../../../style/variables.scss';
+
+.NotesPageItem {
+  width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  background-color: rgb(78, 78, 78);
+  background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');
+  border-radius: 13px;
+  padding: 12px 20px;
+  color: $active-color;
+  font-size: 15px;
+  box-shadow: 3px 6px 7px rgb(159, 228, 255, 0.8);
+
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &__delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-image: url('../../../../assets/icons/delete.svg');
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    transition: all 0.5s ease;
+
+    &:hover {
+      transform: scale(1.4);
+      background-image: url('../../../../assets/icons/delete-hover.svg');
+    }
+  }
+  &__signature {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-style: italic;
+    width: 325px;
+    line-height: 20px;
+    transition: all 0.5s ease;
+  }
+  &__title {
+    color: rgb(206, 206, 206);
+    margin-top: 17px;
+    transition: all 0.5s ease;
+  }
+  &__time {
+    color: rgb(206, 206, 206);
+    margin-top: 3px;
+    transition: all 0.5s ease;
+  }
+  &__desk {
+    margin-top: 5px;
+    font-size: 14px;
+    transition: all 0.5s ease;
+  }
+  &:hover {
+    box-shadow: 3px 6px 7px rgba(255, 255, 255, 0.8);
+    background-color: rgb(34, 34, 34);
+
+    .NotesPageItem__signature,
+    .NotesPageItem__desk {
+      color: $active-color-active;
+    }
+    .NotesPageItem__title,
+    .NotesPageItem__time {
+      color: rgb(255, 255, 255);
+    }
+  }
+}

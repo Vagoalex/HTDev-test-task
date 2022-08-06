@@ -17,7 +17,6 @@
     "@types/react-toastify": "^4.1.0",
     "@types/react-transition-group": "^4.4.5",
     "@types/uuid": "^8.3.4",
-    "concurrently": "^7.3.0",
     "formik": "^2.2.9",
     "framer-motion": "^6.5.1",
     "react": "^18.2.0",
@@ -33,7 +32,7 @@
     "gh-pages": "^4.0.0"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"npx json-server heroes.json --port 3001\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

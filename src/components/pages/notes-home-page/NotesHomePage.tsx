@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -24,4 +24,4 @@ const NotesHomePage: FC = (): JSX.Element => {
   );
 };
 
-export default NotesHomePage;
+export default memo(NotesHomePage);

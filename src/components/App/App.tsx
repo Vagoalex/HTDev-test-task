@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import NotesFooter from '../notes-footer/NotesFooter';
 import NotesHeader from '../notes-header/NotesHeader';
 import AnimatedRoutes from '../pages/animated-routes/AnimatedRoutes';

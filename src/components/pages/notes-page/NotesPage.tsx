@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { motion } from 'framer-motion';
-import { INote } from './notesTypes';
+import { INote } from '../../../types/notesTypes';
 import { useAppSelector } from '../../../store/reduxHooks';
 import NotesPageItem from './notes-page-item/NotesPageItem';
 
@@ -20,7 +20,7 @@ const NotesPage: FC = () => {
       }}
     >
       <div className='NotesPage__container'>
-        <div>
+        <div className='NotesPage__list'>
           {note.length !== 0 ? (
             note.map((val, i) => {
               const { id, text, signature, time } = val;

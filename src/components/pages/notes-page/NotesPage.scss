@@ -16,16 +16,24 @@
     align-items: center;
     width: 950px;
     height: 100%;
-    padding: 28px 45px;
+    padding: 30px;
     position: relative;
-    background-color: #949494;
+    background-color: rgba(0, 0, 0, 0.6);
     background-image: url('https://www.transparenttextures.com/patterns/checkered-light-emboss.png');
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    border-radius: 10px;
     transition: all 0.5s ease;
     overflow: hidden;
   }
 
   &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    overflow-y: scroll;
+    border: 1px solid $active-color;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
   }
 }

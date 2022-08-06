@@ -1,13 +1,19 @@
+import { useAppDispatch } from '../../../store/reduxHooks';
+import { addNote } from '../../../store/notesSlice';
+
+import { onSubmitForm } from '../../../helpers/helpers';
+import { INote } from '../../../types/notesTypes';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useFormik, FormikProps, FormikErrors } from 'formik';
-import { IFormValues } from './formTypes';
 import { motion } from 'framer-motion';
 
 import './NotesFormPage.scss';
-
 const NotesForm = () => {
+  const dispatch = useAppDispatch();
+
   const notify = () =>
     toast.success('Заметка создана :)', {
       position: 'bottom-right',
@@ -19,14 +25,14 @@ const NotesForm = () => {
       progress: undefined,
     });
 
-  const formik: FormikProps<IFormValues> = useFormik<IFormValues>({
+  const formik: FormikProps<INote> = useFormik<INote>({
     initialValues: {
       text: '',
       signature: '',
     },
 
-    validate: (values: IFormValues) => {
-      let errors: FormikErrors<IFormValues> = {};
+    validate: (values: INote) => {
+      let errors: FormikErrors<INote> = {};
 
       if (!values.signature) {
         errors.signature = 'Укажите подпись.';
@@ -38,10 +44,10 @@ const NotesForm = () => {
 
       return errors;
     },
-    onSubmit: (values: IFormValues, { resetForm }) => {
+    onSubmit: (values: INote, { resetForm }) => {
       resetForm();
       notify();
-      console.log(JSON.stringify(values, null, 2));
+      dispatch(addNote(onSubmitForm(values)));
     },
   });
 

@@ -1,0 +1,62 @@
+@import '../../../style/variables.scss';
+@import '../../../style/mixins.scss';
+
+.Page404 {
+  height: 550px;
+  padding: 75px 35px;
+  display: flex;
+  justify-content: center;
+
+  transition: all 0.5s ease;
+
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 950px;
+    height: 100%;
+    padding: 28px 45px;
+    position: relative;
+    background-color: #949494;
+    background-image: url('https://www.transparenttextures.com/patterns/nice-snow.png');
+    animation: animated-background 30s linear infinite;
+    background-size: 102%;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+  }
+  &__title {
+    font-size: 22px;
+    color: $active-color;
+    text-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
+  }
+  &__link {
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+    text-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
+    padding: 10px 25px;
+    margin-top: 20px;
+    background-color: rgb(159, 228, 255);
+    background-image: url(https://www.transparenttextures.com/patterns/nice-snow.png);
+    box-shadow: 0px 6px 10px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.15);
+      background-color: #b7b7b7;
+    }
+    &:active {
+      transform: scale(1.15) translateY(3px);
+      color: $active-color-active;
+      background-color: #444444;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.9);
+    }
+  }
+}

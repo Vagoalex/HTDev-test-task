@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import notesState from './notesState';
 const initialState = {
   notes: notesState,
+  countNote: 10,
 };
 
 const notesSlice = createSlice({
@@ -14,10 +15,13 @@ const notesSlice = createSlice({
     deleteNote(state, action) {
       state.notes = state.notes.filter((note) => note.id !== action.payload);
     },
+    plusCounterNote(state) {
+      state.countNote = state.countNote + 1;
+    },
   },
 });
 
 const { actions, reducer } = notesSlice;
 
 export default reducer;
-export const { addNote, deleteNote } = actions;
+export const { addNote, deleteNote, plusCounterNote } = actions;

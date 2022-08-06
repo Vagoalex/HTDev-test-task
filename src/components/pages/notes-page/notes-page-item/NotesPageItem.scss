@@ -34,6 +34,10 @@
       background-image: url('../../../../assets/icons/delete-hover.svg');
     }
   }
+
+  &__link {
+    color: $active-color;
+  }
   &__signature {
     font-weight: 700;
     text-transform: uppercase;

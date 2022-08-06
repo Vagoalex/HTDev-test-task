@@ -1,5 +1,4 @@
 import { INote } from '../types/notesTypes';
-import { v4 as createId } from 'uuid';
 
 export function convertDate() {
   let date = new Date();
@@ -12,9 +11,10 @@ export function convertDate() {
   );
 }
 
-export function onSubmitForm(obj: INote) {
+export function onSubmitForm(obj: INote, noteNumber: number) {
   const formObj = obj;
-  formObj.id = createId();
+  formObj.id = Date.now();
   formObj.time = convertDate();
+  formObj.noteNumber = noteNumber;
   return formObj;
 }

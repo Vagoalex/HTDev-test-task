@@ -27,11 +27,11 @@ const NotesPage: FC = () => {
           }`}
         >
           {notes.length !== 0 ? (
-            notes.map((val, i) => {
-              const { id, text, signature, time } = val;
+            notes.map((val) => {
+              const { noteNumber, id, text, signature, time } = val;
               return (
                 <NotesPageItem
-                  noteNumber={i + 1}
+                  noteNumber={noteNumber}
                   key={id}
                   id={id}
                   text={text}

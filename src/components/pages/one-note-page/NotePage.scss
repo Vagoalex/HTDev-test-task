@@ -1,0 +1,25 @@
+.NotePage {
+  height: 550px;
+  padding: 75px 35px;
+  display: flex;
+  justify-content: center;
+
+  transition: all 0.5s ease;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 950px;
+    height: 100%;
+    padding: 30px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: url('https://www.transparenttextures.com/patterns/checkered-light-emboss.png');
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+  }
+}

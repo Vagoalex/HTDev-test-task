@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+import { Link } from 'react-router-dom';
 import { deleteNote } from '../../../../store/notesSlice';
 import { useAppDispatch } from '../../../../store/reduxHooks';
 
@@ -21,12 +22,12 @@ const NotesPageItem: FC<INote> = ({
 
   return (
     <div className='NotesPageItem'>
-      <div>
+      <Link to={`/notes/note${id}`} className='NotesPageItem__link'>
         <h4 className='NotesPageItem__signature'>{signature}</h4>
         <h2 className='NotesPageItem__title'>{`Заметка №${noteNumber}`}</h2>
         <h2 className='NotesPageItem__time'>{time}</h2>
         <p className='NotesPageItem__desk'>{validText}</p>
-      </div>
+      </Link>
       <div
         onClick={(e) => {
           e.stopPropagation();

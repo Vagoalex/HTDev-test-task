@@ -1,5 +1,5 @@
-import { useAppDispatch } from '../../../store/reduxHooks';
-import { addNote } from '../../../store/notesSlice';
+import { useAppDispatch, useAppSelector } from '../../../store/reduxHooks';
+import { addNote, plusCounterNote } from '../../../store/notesSlice';
 
 import { onSubmitForm } from '../../../helpers/helpers';
 import { INote } from '../../../types/notesTypes';
@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 
 import './NotesFormPage.scss';
 const NotesForm = () => {
+  const noteCounter: number = useAppSelector((state) => state.notes.countNote);
   const dispatch = useAppDispatch();
 
   const notify = () =>
@@ -47,7 +48,8 @@ const NotesForm = () => {
     onSubmit: (values: INote, { resetForm }) => {
       resetForm();
       notify();
-      dispatch(addNote(onSubmitForm(values)));
+      dispatch(addNote(onSubmitForm(values, noteCounter)));
+      dispatch(addNote(plusCounterNote));
     },
   });
 

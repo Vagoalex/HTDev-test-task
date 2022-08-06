@@ -13,9 +13,11 @@ const FormPage = lazy(
   () => import('../../pages/notes-form-page/NotesFormPage')
 );
 const NotesPage = lazy(() => import('../../pages/notes-page/NotesPage'));
+const SingleNotePage = lazy(() => import('../../pages/one-note-page/NotePage'));
+
 const Page404 = lazy(() => import('../../pages/notes-page-404/NotesPage404'));
 
-const AnimatedRoutes: FC = (): JSX.Element => {
+const AnimatedRoutes: FC = () => {
   const location = useLocation();
 
   const [suspended, setSuspended] = useState(false);
@@ -52,6 +54,16 @@ const AnimatedRoutes: FC = (): JSX.Element => {
             <Suspense fallback={<LoadingPage />}>
               <main className='main wrapper'>
                 {suspended ? <NotesPage /> : <LoadingPage />}
+              </main>
+            </Suspense>
+          }
+        />
+        <Route
+          path='/notes/note:id'
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <main className='main wrapper'>
+                {suspended ? <SingleNotePage /> : <LoadingPage />}
               </main>
             </Suspense>
           }

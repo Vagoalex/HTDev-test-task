@@ -1,0 +1,90 @@
+@import '../../../../style/variables.scss';
+
+.NotePageLayout {
+  width: 700px;
+  height: 300px;
+  position: relative;
+
+  background-color: rgb(78, 78, 78);
+  background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');
+  border-radius: 13px;
+  padding: 12px 20px;
+  color: $active-color;
+  font-size: 15px;
+  box-shadow: 3px 6px 7px rgb(159, 228, 255, 0.8);
+
+  transition: all 0.5s ease;
+
+  &__signature {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 21px;
+    font-style: italic;
+    width: 325px;
+    line-height: 20px;
+    transition: all 0.5s ease;
+  }
+  &__title {
+    color: rgb(206, 206, 206);
+    margin-top: 17px;
+    transition: all 0.5s ease;
+  }
+  &__time {
+    color: rgb(206, 206, 206);
+    margin-top: 5px;
+    transition: all 0.5s ease;
+  }
+  &__desk {
+    margin-top: 5px;
+    font-size: 14px;
+    transition: all 0.5s ease;
+    margin-top: 20px;
+    height: 144px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: rgb(78, 78, 78);
+      background-image: url(https://www.transparenttextures.com/patterns/dark-circles.png);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: $active-color;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: rgb(78, 78, 78);
+      background-image: url(https://www.transparenttextures.com/patterns/dark-circles.png);
+    }
+  }
+
+  &__back {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #000;
+    text-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
+    padding: 10px 25px;
+    margin-top: 20px;
+    background-color: rgb(159, 228, 255);
+    background-image: url(https://www.transparenttextures.com/patterns/nice-snow.png);
+    box-shadow: 0px 6px 10px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.08);
+      background-color: #b7b7b7;
+    }
+    &:active {
+      transform: scale(1.08) translateY(5px);
+      color: $active-color-active;
+      background-color: #444444;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.9);
+    }
+  }
+}

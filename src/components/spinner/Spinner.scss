@@ -3,7 +3,11 @@
 
 .html-spinner-container {
   height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   @include crossBrowser(transition, all 0.5s ease);
@@ -30,8 +34,15 @@
   -moz-animation-iteration-count: infinite;
   -moz-animation-timing-function: linear;
 
+  transition-property: -webkit-transform;
+
+  -o-transition-property: transform;
+
   transition-property: transform;
+
+  transition-property: transform, -webkit-transform;
   animation-name: rotate;
+  -webkit-animation-duration: 1.2s;
   animation-duration: 1.2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -46,20 +57,13 @@
   }
 }
 
-@-moz-keyframes rotate {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-
 @keyframes rotate {
   from {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   to {
+    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }

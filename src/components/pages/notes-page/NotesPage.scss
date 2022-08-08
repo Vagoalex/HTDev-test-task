@@ -4,15 +4,28 @@
 .NotesPage {
   height: 550px;
   padding: 75px 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   @include crossBrowser(transition, all 0.5s ease);
 
   &__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 950px;
     height: 100%;
@@ -20,6 +33,7 @@
     position: relative;
     background-color: rgba(0, 0, 0, 0.6);
     background-image: url('https://www.transparenttextures.com/patterns/checkered-light-emboss.png');
+    -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
@@ -37,7 +51,9 @@
   }
 
   &__list {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 20px 1fr;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     overflow-y: scroll;
@@ -49,13 +65,24 @@
     @include crossBrowser(transition, all 0.5s ease);
 
     &--empty {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+
+      -webkit-box-pack: center;
+
+      -ms-flex-pack: center;
 
       justify-content: center;
     }
 
     @media (max-width: $media-tablets) {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
     }
   }
@@ -72,7 +99,12 @@
 }
 
 .NotesPage-list-empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 
   font-size: 17px;
@@ -97,6 +129,7 @@
     margin-top: 20px;
     background-color: #949494;
     background-image: url('https://www.transparenttextures.com/patterns/nice-snow.png');
+    -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 
@@ -114,7 +147,12 @@
 
       color: $active-color-active;
       background-color: #444444;
+      -webkit-box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.9);
       box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.9);
+    }
+
+    @media (max-width: $media-tablets) {
+      font-size: 13px;
     }
   }
 }

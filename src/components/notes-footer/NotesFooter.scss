@@ -16,8 +16,14 @@
     padding-left: 0;
     margin-top: 10px;
     list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 
@@ -29,15 +35,27 @@
 .FooterSocial-list-item {
   display: inline-block;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   margin: 0px 10px;
 
   &__link {
     background-color: #4d4d4d;
+    -webkit-box-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
     box-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
     color: $active-color;
     font-size: 16px;
@@ -48,6 +66,10 @@
     text-align: center;
     border-radius: 100%;
 
+    -webkit-transition: all 0.5s linear;
+
+    -o-transition: all 0.5s linear;
+
     transition: all 0.5s linear;
 
     &:active,
@@ -55,18 +77,8 @@
     &:hover {
       color: #000;
       background-color: $active-color;
+      -webkit-box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.9);
       box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.9);
     }
-  }
-
-  &__vk {
-  }
-  &__instagram {
-  }
-  &__linkedin {
-  }
-  &__telegram {
-  }
-  &__github {
   }
 }

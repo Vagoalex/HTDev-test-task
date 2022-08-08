@@ -4,7 +4,11 @@
 .NotesLoadingPage {
   height: 550px;
   padding: 75px 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   @include crossBrowser(transition, all 0.5s ease);

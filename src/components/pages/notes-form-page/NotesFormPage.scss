@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
 
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
 
   &__container {
     display: flex;
@@ -21,17 +21,28 @@
 
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
 
-    // @media (max-width: $media-small-desktops) {
-    //   font-size: 24px;
-    //   padding: 15px;
-    //   width: 230px;
-    //   height: auto;
-    // }
-    // @media (max-width: $media-tablets) {
-    //   margin-top: 0px;
-    // }
+    @media (max-width: $media-laptops) {
+      width: 900px;
+    }
+    @media (max-width: $media-small-desktops) {
+      width: 580px;
+    }
+    @media (max-width: $media-tablets) {
+      width: 280px;
+      padding: 18px;
+    }
+  }
+
+  @media (max-width: $media-tablets) {
+    padding: 75px 65px;
+  }
+  @media (max-width: $media-phones) {
+    padding: 25px 35px;
+  }
+  @media (max-width: $media-small-phones) {
+    padding: 25px 17px;
   }
 }
 .Form {
@@ -46,22 +57,23 @@
 
     border-radius: 10px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
 
     cursor: pointer;
 
     &:hover:not(.form-button-disabled) {
       background-color: $active-color-hover;
       box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.7);
-      transform: scale(1.05);
+      @include crossBrowser(transform, scale(1.05));
     }
     &:active:not(.form-button-disabled) {
       background-color: $active-color-active;
-      transform: scale(1.05) translateY(4px);
+
       box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.9);
+      @include crossBrowser(transform, scale(1.05) translateY(4px));
     }
 
-    @media (max-width: $media-small-desktops) {
+    @media (max-width: $media-tablets) {
       width: 100%;
     }
   }
@@ -90,6 +102,10 @@
     border-radius: 20px;
     padding: 1px 10px;
     box-shadow: 2px 2px 5px rgb(0 0 0 / 50%);
+
+    @media (max-width: $media-small-desktops) {
+      top: -6px;
+    }
   }
   &__input {
     width: 100%;
@@ -105,10 +121,10 @@
     border-radius: 4px;
     border: 1px solid transparent;
     outline: 1px solid transparent;
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
 
     &::placeholder {
-      transition: all 0.5s ease;
+      @include crossBrowser(transition, all 0.5s ease);
       font-size: 12px;
       line-height: 15px;
       color: #b4b4b4;
@@ -122,7 +138,7 @@
       }
     }
     @media (max-width: $media-small-desktops) {
-      padding: 8px 10px;
+      padding: 12px 10px;
     }
   }
   &__textarea {
@@ -130,11 +146,18 @@
     height: 108px;
     overflow-y: auto;
     resize: none;
-    ::-webkit-scrollbar {
+
+    @include crossBrowser(transition, all 0.5s ease);
+
+    &::-webkit-scrollbar {
       width: 0;
     }
+
     @media (max-width: $media-small-desktops) {
-      height: 70px;
+      height: 140px;
+    }
+    @media (max-width: $media-phones) {
+      height: 200px;
     }
   }
 }
@@ -143,17 +166,23 @@
   position: absolute;
   bottom: -24%;
   left: 0;
-  transition: all 0.5s ease;
   font-size: 14px;
   line-height: 10px;
   letter-spacing: -0.02em;
   color: #dd9f9f;
   text-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
+
+  @include crossBrowser(transition, all 0.5s ease);
+
+  @media (max-width: $media-tablets) {
+    font-size: 13px;
+  }
 }
 
 .form-input-required {
   border: 1px solid #ff8484;
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
+
   &:focus {
     outline: 1px solid #ff8484;
     box-shadow: 0px 2px 5px rgba(255, 132, 132, 0.4);
@@ -161,7 +190,7 @@
 }
 
 .form-button-disabled {
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
   background-color: #eeeeee;
   color: #b4b4b4;
 }

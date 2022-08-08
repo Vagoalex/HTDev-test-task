@@ -9,6 +9,7 @@ import './NotesPage.scss';
 
 const NotesPage: FC = () => {
   const notes: INote[] = useAppSelector((state) => state.notes.notes);
+  console.log(notes);
 
   return (
     <motion.section

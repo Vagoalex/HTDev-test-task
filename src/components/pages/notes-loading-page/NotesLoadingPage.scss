@@ -1,8 +1,11 @@
+@import '../../../style/variables.scss';
+@import '../../../style/mixins.scss';
+
 .NotesLoadingPage {
   height: 550px;
   padding: 75px 35px;
   display: flex;
   justify-content: center;
 
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
 }

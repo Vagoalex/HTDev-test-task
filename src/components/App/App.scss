@@ -1,6 +1,15 @@
+@import '../../style/variables.scss';
+@import '../../style/mixins.scss';
+
 .App {
   background-color: #ababab;
   background-image: url('https://www.transparenttextures.com/patterns/diagmonds-light.png');
   height: 100vh;
   position: relative;
+
+  @media (max-width: $media-phones) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

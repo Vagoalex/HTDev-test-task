@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+
+import { INotesState } from './storeTypes';
 import notesState from './notesState';
-const initialState = {
+
+const initialState: INotesState = {
   notes: notesState,
   countNote: 10,
 };
@@ -16,7 +19,7 @@ const notesSlice = createSlice({
       state.notes = state.notes.filter((note) => note.id !== action.payload);
     },
     plusCounterNote(state) {
-      state.countNote = state.countNote + 1;
+      state.countNote += 1;
     },
   },
 });

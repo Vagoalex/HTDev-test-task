@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 
 import './NotesFormPage.scss';
 const NotesForm = () => {
-  const noteCounter: number = useAppSelector((state) => state.notes.countNote);
+  const countNote: number = useAppSelector((state) => state.notes.countNote);
   const dispatch = useAppDispatch();
 
   const notify = () =>
@@ -47,9 +47,9 @@ const NotesForm = () => {
     },
     onSubmit: (values: INote, { resetForm }) => {
       resetForm();
+      dispatch(addNote(onSubmitForm(values, countNote)));
       notify();
-      dispatch(addNote(onSubmitForm(values, noteCounter)));
-      dispatch(addNote(plusCounterNote));
+      dispatch(plusCounterNote());
     },
   });
 

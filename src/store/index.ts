@@ -13,14 +13,15 @@ import storage from 'redux-persist/lib/storage';
 
 import notesReducer from './notesSlice';
 
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage,
+};
+
 const rootReducer = combineReducers({
   notes: notesReducer,
 });
-
-const persistConfig = {
-  key: 'root',
-  storage,
-};
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -38,5 +39,5 @@ const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-export const persistor = persistStore(store);
+export let persistor = persistStore(store);
 export default store;

@@ -1,4 +1,5 @@
 @import '../../../../style/variables.scss';
+@import '../../../../style/mixins.scss';
 
 .NotesPageItem {
   width: 400px;
@@ -16,7 +17,7 @@
   box-shadow: 3px 6px 7px rgb(159, 228, 255, 0.8);
 
   cursor: pointer;
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
 
   &__delete {
     position: absolute;
@@ -27,10 +28,11 @@
     height: 30px;
     cursor: pointer;
 
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
 
     &:hover {
-      transform: scale(1.4);
+      @include crossBrowser(transform, scale(1.4));
+
       background-image: url('../../../../assets/icons/delete-hover.svg');
     }
   }
@@ -45,23 +47,29 @@
     font-style: italic;
     width: 325px;
     line-height: 20px;
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
+
+    @media (max-width: $media-small-desktops) {
+      font-size: 16px;
+      width: 180px;
+    }
   }
   &__title {
     color: rgb(206, 206, 206);
     margin-top: 17px;
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
   }
   &__time {
     color: rgb(206, 206, 206);
     margin-top: 3px;
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
   }
   &__desk {
     margin-top: 5px;
     font-size: 14px;
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
   }
+
   &:hover {
     box-shadow: 3px 6px 7px rgba(255, 255, 255, 0.8);
     background-color: rgb(34, 34, 34);
@@ -74,5 +82,10 @@
     .NotesPageItem__time {
       color: rgb(255, 255, 255);
     }
+  }
+
+  @media (max-width: $media-small-desktops) {
+    width: 240px;
+    padding: 14px 10px;
   }
 }

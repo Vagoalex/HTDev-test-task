@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
 
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
 
   &__container {
     display: flex;
@@ -24,8 +24,19 @@
     background-size: 102%;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    transition: all 0.5s ease;
+
+    @include crossBrowser(transition, all 0.5s ease);
     overflow: hidden;
+
+    @media (max-width: $media-laptops) {
+      width: 900px;
+    }
+    @media (max-width: $media-small-desktops) {
+      width: 580px;
+    }
+    @media (max-width: $media-tablets) {
+      width: 280px;
+    }
   }
   &__title {
     font-family: 'Montserrat', sans-serif;
@@ -34,11 +45,37 @@
     font-size: 30px;
     color: $active-color;
     text-shadow: 2px 2px 5px rgb(0 0 0 / 90%);
-    transition: all 0.5s ease;
     cursor: pointer;
 
+    @include crossBrowser(transition, all 0.5s ease);
+
     &:hover {
-      transform: scale(1.2);
+      @include crossBrowser(transform, scale(1.2));
     }
+
+    @media (max-width: $media-tablets) {
+      text-align: center;
+      line-height: 50px;
+      background-color: #4d4d4d;
+      border-radius: 20px;
+      box-shadow: 3px 6px 7px rgb(159 228 255 / 80%);
+
+      &:hover {
+        @include crossBrowser(transform, scale(1));
+      }
+      &:active {
+        @include crossBrowser(transform, translateY(4px));
+      }
+    }
+  }
+
+  @media (max-width: $media-tablets) {
+    padding: 75px 65px;
+  }
+  @media (max-width: $media-phones) {
+    padding: 25px 35px;
+  }
+  @media (max-width: $media-small-phones) {
+    padding: 25px 17px;
   }
 }

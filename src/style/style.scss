@@ -39,6 +39,8 @@ section {
   max-width: 1020px;
   margin: 0 auto;
 
+  @include crossBrowser(transition, all 0.5s ease);
+
   @media (max-width: $media-laptops) {
     width: 965px;
   }
@@ -46,16 +48,13 @@ section {
     width: 650px;
   }
   @media (max-width: $media-tablets) {
-    width: 625px;
-  }
-  @media (max-width: $media-small-tablets) {
-    width: 400px;
+    width: 410px;
   }
   @media (max-width: $media-phones) {
     width: 350px;
   }
   @media (max-width: $media-small-phones) {
-    width: 260px;
+    width: 315px;
   }
 }
 

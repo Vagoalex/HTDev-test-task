@@ -7,7 +7,6 @@
   @include crossBrowser(transition, all 0.4s ease);
 
   -webkit-animation: nav-item-in 1s linear forwards;
-
   animation: nav-item-in 1s linear forwards;
 
   display: flex;
@@ -57,6 +56,19 @@
         box-shadow: 3px 3px 2px $shadow-color;
         background-color: $main-color-active;
       }
+    }
+
+    @media (max-width: $media-tablets) {
+      font: 14px 'Open Sans', sans-serif;
+      margin: 0px 11px;
+    }
+    @media (max-width: $media-phones) {
+      font: 12px 'Open Sans', sans-serif;
+      margin: 0px 8px;
+    }
+    @media (max-width: $media-small-phones) {
+      font: 11px 'Open Sans', sans-serif;
+      margin: 0px 7px;
     }
   }
 }

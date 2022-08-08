@@ -7,10 +7,10 @@
   display: flex;
   justify-content: center;
 
-  transition: all 0.5s ease;
-
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
+
+  @include crossBrowser(transition, all 0.5s ease);
 
   &__container {
     display: flex;
@@ -27,8 +27,19 @@
     background-size: 102%;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    transition: all 0.5s ease;
     overflow: hidden;
+
+    @include crossBrowser(transition, all 0.5s ease);
+
+    @media (max-width: $media-laptops) {
+      width: 900px;
+    }
+    @media (max-width: $media-small-desktops) {
+      width: 580px;
+    }
+    @media (max-width: $media-tablets) {
+      width: 280px;
+    }
   }
   &__title {
     font-size: 22px;
@@ -46,17 +57,31 @@
     background-image: url(https://www.transparenttextures.com/patterns/nice-snow.png);
     box-shadow: 0px 6px 10px rgb(0 0 0 / 20%);
     border-radius: 10px;
-    transition: all 0.5s ease;
+
     cursor: pointer;
+    @include crossBrowser(transition, all 0.5s ease);
+
     &:hover {
-      transform: scale(1.15);
+      @include crossBrowser(transform, scale(1.15));
+
       background-color: #b7b7b7;
     }
     &:active {
-      transform: scale(1.15) translateY(3px);
+      @include crossBrowser(transform, scale(1.15) translateY(3px));
+
       color: $active-color-active;
       background-color: #444444;
       box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.9);
     }
+  }
+
+  @media (max-width: $media-tablets) {
+    padding: 75px 65px;
+  }
+  @media (max-width: $media-phones) {
+    padding: 25px 35px;
+  }
+  @media (max-width: $media-small-phones) {
+    padding: 25px 17px;
   }
 }

@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
 
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
 
   &__container {
     display: flex;
@@ -22,8 +22,18 @@
     background-image: url('https://www.transparenttextures.com/patterns/checkered-light-emboss.png');
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    transition: all 0.5s ease;
     overflow: hidden;
+    @include crossBrowser(transition, all 0.5s ease);
+
+    @media (max-width: $media-laptops) {
+      width: 900px;
+    }
+    @media (max-width: $media-small-desktops) {
+      width: 580px;
+    }
+    @media (max-width: $media-tablets) {
+      width: 280px;
+    }
   }
 
   &__list {
@@ -36,11 +46,28 @@
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.6);
 
+    @include crossBrowser(transition, all 0.5s ease);
+
     &--empty {
       display: flex;
 
       justify-content: center;
     }
+
+    @media (max-width: $media-tablets) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: $media-tablets) {
+    padding: 75px 65px;
+  }
+  @media (max-width: $media-phones) {
+    padding: 25px 35px;
+  }
+  @media (max-width: $media-small-phones) {
+    padding: 25px 17px;
   }
 }
 
@@ -53,10 +80,11 @@
   padding: 10px 40px;
   color: $active-color;
   text-transform: uppercase;
+
   &__title {
   }
 
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
 
   &__link {
     font-family: 'Montserrat', sans-serif;
@@ -72,16 +100,18 @@
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 
-    transition: all 0.5s ease;
     cursor: pointer;
+    @include crossBrowser(transition, all 0.5s ease);
 
     &:hover {
-      transform: scale(1.15);
+      @include crossBrowser(transform, scale(1.15));
+
       color: $active-color-hover;
       background-color: #b7b7b7;
     }
     &:active {
-      transform: scale(1.15) translateY(3px);
+      @include crossBrowser(transform, scale(1.15) translateY(3px));
+
       color: $active-color-active;
       background-color: #444444;
       box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.9);

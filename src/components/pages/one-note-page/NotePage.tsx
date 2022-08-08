@@ -21,8 +21,8 @@ const NotePage: FC = () => {
   return (
     <motion.section
       className='NotePage'
-      initial={{ position: 'absolute', top: '-200px', opacity: 0 }}
-      animate={{ position: 'absolute', top: '0%', opacity: 1 }}
+      initial={{ position: 'relative', left: '-50%', opacity: 0 }}
+      animate={{ position: 'relative', left: '0%', opacity: 1 }}
       exit={{ position: 'absolute', left: '100%', top: 0, opacity: 0 }}
       transition={{
         duration: 0.8,
